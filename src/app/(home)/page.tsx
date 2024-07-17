@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import styles from '../page.module.css';
+import styles from '@/styles/home.module.css';
 import { title } from 'process';
 import { Metadata } from 'next';
 import { API_URL } from '@/api';
 import Link from 'next/link';
+import Movie from '@/components/movie';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -36,11 +37,14 @@ export default async function Home() {
   const movies = await getMovies();
   return (
     <main className={styles.main}>
-      <div>
+      <div className={styles.grid}>
         {movies.map((movie: IMovie) => (
-          <li key={movie.id}>
-            <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-          </li>
+          <Movie
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            key={movie.id}
+          />
         ))}
       </div>
       <div className={styles.description}>

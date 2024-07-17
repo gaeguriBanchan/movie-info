@@ -1,8 +1,6 @@
 import { API_URL } from '@/api';
 
 async function getMovie(id: string) {
-  console.log(`Fetching movie ${Date.now()}`);
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   const response = await fetch(`${API_URL}/${id}`);
   return response.json();
 }
