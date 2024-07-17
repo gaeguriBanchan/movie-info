@@ -31,3 +31,18 @@
 .nav ul li:hover {
   transform: scale(1.05);
 }
+
+@media (max-width: 800px) {
+  .nav {
+    background-color: #2e2e2e;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    top: 0px;
+    border-radius: 0px;
+    padding: 20px 0px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+  }
+}

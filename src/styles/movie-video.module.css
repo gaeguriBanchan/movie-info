@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 100%;
+  width: var(--max-width);
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.grid iframe {
+  border-radius: 10px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.grid iframe:hover {
+  opacity: 1;
+}

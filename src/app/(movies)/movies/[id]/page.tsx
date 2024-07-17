@@ -1,16 +1,32 @@
 import { API_URL } from '@/api';
-import MovieInfo from '@/components/movie-info';
+import MovieInfo, { getMovie } from '@/components/movie-info';
 import MovieVideos from '@/components/movie-videos';
 import { Suspense } from 'react';
 
-export default async function MovieDetail({
-  params: { id },
-}: {
+interface IParams {
   params: { id: string };
-}) {
-  // console.log('start fetch');
-  // const [movie, video] = await Promise.all([getMovie(id), getVideo(id)]);
-  // console.log('end fetch');
+}
+
+interface IMovieInfo {
+  adult: boolean;
+  backdrop_path: string;
+  id: number;
+  overview: string;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  vote_average: number;
+  homepage: string;
+}
+
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie: IMovieInfo = await getMovie(id);
+  return {
+    title: movie.title,
+  };
+}
+
+export default async function MovieDetail({ params: { id } }: IParams) {
   return (
     <div>
       <Suspense fallback={<h1>Loading MovieInfo</h1>}>
