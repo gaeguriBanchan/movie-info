@@ -2,6 +2,7 @@ import { API_URL } from '@/api';
 import MovieInfo, { getMovie } from '@/components/movie-info';
 import MovieVideos from '@/components/movie-videos';
 import { Suspense } from 'react';
+import styles from '@/styles/movie-detail.module.css';
 
 interface IParams {
   params: { id: string };
@@ -32,9 +33,9 @@ export default async function MovieDetail({ params: { id } }: IParams) {
       <Suspense fallback={<h1>Loading MovieInfo</h1>}>
         <MovieInfo id={id} />
       </Suspense>
-      <Suspense fallback={<h1>Loading MovieVideos</h1>}>
+      {/* <Suspense fallback={<h1>Loading MovieVideos</h1>}>
         <MovieVideos id={id} />
-      </Suspense>
+      </Suspense> */}
     </div>
   );
 }
