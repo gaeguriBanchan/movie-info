@@ -1,5 +1,6 @@
 import { API_URL } from '@/api';
 import { getMovie, IMovieInfo } from '@/components/movie-info';
+import styles from '@/styles/similar.module.css';
 
 interface IParams {
   params: { id: string };
@@ -26,16 +27,39 @@ async function getMovieSimilar(id: string) {
   return response.json();
 }
 
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie: IMovieInfo = await getMovie(id);
+  return {
+    title: `${movie.title} | SimilarMovies`,
+    description: `The similar movies to ${movie.title}`,
+  };
+}
+
 export default async function SimilarMovies({ params: { id } }: IParams) {
   const movie: IMovieInfo = await getMovie(id);
   const similarMovies: ISimilarMovie[] = await getMovieSimilar(id);
   return (
-    <div>
-      <h1>{movie.title} : similar movies???</h1>
-      <div>
-        {similarMovies.slice(0, 3).map((similar) => (
-          <div key={similar.id}>
-            <h2>{similar.title}</h2>
+    <div className={styles.container}>
+      <div className={styles.top}>
+        <h1>Movies similar to &quot;{movie.title}&quot;</h1>
+      </div>
+      <div className={styles.movies}>
+        {similarMovies.map((similar) => (
+          <div className={styles.movie} key={similar.id}>
+            <img
+              className={styles.movieImg}
+              src={similar.poster_path}
+              alt={similar.title}
+            />
+            <div className={styles.movieInfo}>
+              <div className={styles.movieTitle}>
+                <h2>{similar.title}</h2>
+                <h3>⭐{similar.vote_average.toFixed(1)}</h3>
+              </div>
+              <h4>release: {similar.release_date}</h4>
+              <h4>original language : {similar.original_language}</h4>
+              <p>{similar.overview}</p>
+            </div>
           </div>
         ))}
       </div>
