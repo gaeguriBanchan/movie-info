@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navigation />
         {children}
-        &copy; Next JS is great!
+        {/* &copy; Next JS is great! */}
       </body>
     </html>
   );
