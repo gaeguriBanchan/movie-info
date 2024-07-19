@@ -7,6 +7,7 @@ export async function getMovie(id: string) {
   return response.json();
 }
 export async function getMovieCredits(id: string) {
+  // await new Promise((resolve) => setTimeout(resolve, 500000000));
   const response = await fetch(`${API_URL}/${id}/credits`);
   return response.json();
 }

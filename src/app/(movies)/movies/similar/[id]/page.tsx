@@ -1,6 +1,8 @@
 import { API_URL } from '@/api';
 import { getMovie, IMovieInfo } from '@/components/movie-info';
 import styles from '@/styles/similar.module.css';
+import Image from 'next/image';
+import myImg from '@/img/profile.jpg';
 
 interface IParams {
   params: { id: string };
@@ -23,6 +25,7 @@ interface ISimilarMovie {
 }
 
 async function getMovieSimilar(id: string) {
+  // await new Promise((resolve) => setTimeout(resolve, 50000000));
   const response = await fetch(`${API_URL}/${id}/similar`);
   return response.json();
 }
@@ -62,6 +65,22 @@ export default async function SimilarMovies({ params: { id } }: IParams) {
             </div>
           </div>
         ))}
+      </div>
+      <div className={styles.description}>
+        <div>
+          <a href="https://github.com/gaeguriBanchan" target="_blank">
+            By{' '}
+            <Image
+              src={myImg}
+              alt="myImg"
+              // className={styles.vercelLogo}
+              width={50}
+              height={50}
+              priority
+            />
+            KIMJAEJIN
+          </a>
+        </div>
       </div>
     </div>
   );

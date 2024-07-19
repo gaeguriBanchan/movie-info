@@ -86,7 +86,7 @@ body {
 }
 
 body {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

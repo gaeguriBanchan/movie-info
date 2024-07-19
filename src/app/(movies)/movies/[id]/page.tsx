@@ -3,6 +3,8 @@ import MovieInfo, { getMovie } from '@/components/movie-info';
 import MovieVideos from '@/components/movie-videos';
 import { Suspense } from 'react';
 import styles from '@/styles/movie-detail.module.css';
+import Image from 'next/image';
+import myImg from '@/img/profile.jpg';
 
 interface IParams {
   params: { id: string };
@@ -28,13 +30,33 @@ export async function generateMetadata({ params: { id } }: IParams) {
 }
 export default async function MovieDetail({ params: { id } }: IParams) {
   return (
-    <div>
-      <Suspense fallback={<h1>Loading MovieInfo</h1>}>
+    <div className={styles.main}>
+      <Suspense
+        fallback={<h1 className={styles.loading}>Loading MovieInfo</h1>}
+      >
         <MovieInfo id={id} />
       </Suspense>
-      <Suspense fallback={<h1>Loading MovieVideos</h1>}>
+      <Suspense
+        fallback={<h1 className={styles.loading}>Loading MovieVideos</h1>}
+      >
         <MovieVideos id={id} />
       </Suspense>
+      <div className={styles.description}>
+        <div>
+          <a href="https://github.com/gaeguriBanchan" target="_blank">
+            By{' '}
+            <Image
+              src={myImg}
+              alt="myImg"
+              // className={styles.vercelLogo}
+              width={50}
+              height={50}
+              priority
+            />
+            KIMJAEJIN
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

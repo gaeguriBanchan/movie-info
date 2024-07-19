@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Next Movies',
-    default: 'Next Movies',
+    template: '%s | NextJs Movies',
+    default: 'NextJs MoviesApp Project',
   },
   description: 'The best movies',
 };

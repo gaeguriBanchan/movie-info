@@ -92,10 +92,13 @@
 
   .credits {
     margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(33% auto));
+    margin-top: 0.5rem;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 700px) {
   .credits {
     display: grid;
     grid-template-columns: repeat(2, 50%);
