@@ -44,15 +44,7 @@ export default async function MovieDetail({ params: { id } }: IParams) {
       <div className={styles.description}>
         <div>
           <a href="https://github.com/gaeguriBanchan" target="_blank">
-            By{' '}
-            <Image
-              src={myImg}
-              alt="myImg"
-              // className={styles.vercelLogo}
-              width={50}
-              height={50}
-              priority
-            />
+            By <Image src={myImg} alt="myImg" width={50} height={50} priority />
             KIMJAEJIN
           </a>
         </div>

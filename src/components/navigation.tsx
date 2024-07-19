@@ -19,12 +19,12 @@ export default function Navigation() {
           )}
         </li>
         <li>
-          {path === '/about-us' ? (
-            <Link href="/about-us" style={{ textDecoration: 'underline' }}>
-              About Us
+          {path === '/about-project' ? (
+            <Link href="/about-project" style={{ textDecoration: 'underline' }}>
+              About Project
             </Link>
           ) : (
-            <Link href="/about-us">About Us</Link>
+            <Link href="/about-project">About Project</Link>
           )}
         </li>
       </ul>
