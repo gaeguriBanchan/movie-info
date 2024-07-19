@@ -45,6 +45,7 @@
 .links {
   display: flex;
   gap: 1rem;
+  margin: 2rem 0;
 }
 
 .links a {
@@ -52,6 +53,7 @@
   background-color: #2e2e2e;
   border-radius: 25px;
   color: aliceblue;
+  text-align: center;
 }
 
 .credits {
@@ -103,5 +105,26 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .poster {
+    max-width: 100%;
+    min-height: 100%;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .credits {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+  }
+  .actorImg {
+    max-width: 90%;
+    min-height: 90%;
+    border-radius: 10px;
   }
 }
